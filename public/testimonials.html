@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Testimonials · Friends Track</title>
+<style>
+:root{
+  --gold:#FBD404;--navy:#020F41;--royal:#01338D;--bg1:#020F41;--bg2:#01338D;--ink:#fff;--muted:rgba(255,255,255,.62);--accent:#FBD404;--card:#01338D;--card-edge:#FBD404;--wire:#FBD404;--dot:#FBD404;--star:#FBD404;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@font-face{font-family:"Akira Jimbo";src:url("/fonts/Akira%20Jimbo.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"ClementePDai";src:url("/fonts/ClementePDai-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+body{min-height:100vh;font-family:"ClementePDai",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--bg1) 0%,var(--bg1) 62%,var(--bg2) 100%);background-color:var(--bg1)}
+.section{position:relative;max-width:1180px;min-height:100vh;margin:0 auto;padding:clamp(20px,3.5vw,36px) clamp(20px,4vw,48px);display:flex;flex-direction:column}
+.eyebrow,.foot{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px}
+.eyebrow i{width:4px;height:4px;border-radius:50%;background:var(--accent)}
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-top:14px}
+h1{font-weight:500;font-size:clamp(32px,5.4vw,60px);line-height:1.04;letter-spacing:-.035em}
+h1 span{color:var(--accent);display:block}
+h1,.name,.who b,.cta,.bottom{font-family:"Akira Jimbo","ClementePDai",Arial,sans-serif;font-weight:400!important;letter-spacing:.035em!important}
+.side{max-width:230px;font-size:11px;line-height:1.55;color:var(--muted);padding-top:10px}
+.side b{display:flex;align-items:center;gap:6px;margin-top:10px;font-weight:500;font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+.side b i{width:5px;height:5px;border-radius:50%;background:var(--dot)}
+.stage{position:relative;flex:1;min-height:420px;margin:10px 0 14px;touch-action:pan-y}
+.stage svg.wire{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.wire path{fill:none;stroke:var(--wire);stroke-width:1.2}
+.hang{position:absolute;top:0;transform-origin:50% 0;animation:swing 6s ease-in-out infinite;perspective:900px;transition:translate .6s cubic-bezier(.65,0,.25,1)}
+@keyframes swing{0%,100%{transform:rotate(var(--r0))}50%{transform:rotate(var(--r1))}}
+.string{position:absolute;left:50%;top:0;width:1px;background:var(--wire);transform:translateX(-.5px)}
+.clip{position:absolute;left:50%;width:12px;height:14px;margin-left:-6px;border-radius:4px 4px 6px 6px;background:linear-gradient(#ffe45c,#c9a800);box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.tilt{position:absolute;left:0;top:0;width:100%;transition:transform .25s ease-out;transform-style:preserve-3d;cursor:pointer}
+.flip{position:relative;width:100%;aspect-ratio:20/26;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.card.flipped .flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:.55em;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;padding:1.1em;display:flex;flex-direction:column;box-shadow:0 .6em 1.8em rgba(20,20,40,.14),0 .1em .3em rgba(20,20,40,.1)}
+.front{background:radial-gradient(circle at 30% 0%,#0a49b5 0%,var(--royal) 62%);border:1px solid rgba(255,255,255,.14)}
+.back{transform:rotateY(180deg);background:var(--navy);border:1px solid rgba(255,255,255,.14);color:#fff}
+.back::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(1,51,141,.9),transparent 65%);pointer-events:none}
+.card{font-size:calc(var(--u)*1px);width:20em;position:relative}
+.meta{display:flex;justify-content:space-between;font-size:.62em;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);position:relative;z-index:1}
+.back .meta{color:var(--gold);font-weight:700}
+.photo{margin:.8em 0 .9em;border-radius:.35em;aspect-ratio:1/1;overflow:hidden}
+.photo svg{display:block;width:100%;height:100%}
+.name{font-size:1.55em;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.stars{color:var(--star);letter-spacing:.12em;font-size:1.3em;margin-top:.3em;display:flex;align-items:center;gap:.5em;line-height:1}
+.stars em{font-style:normal;font-size:.62em;letter-spacing:.02em;color:var(--muted);font-weight:500}
+.cta{margin-top:auto;padding-top:.8em;border-top:1px solid rgba(251,212,4,.4);display:flex;justify-content:space-between;align-items:center;font-size:.6em;letter-spacing:.1em;font-weight:600;text-transform:uppercase}
+.cta i{width:2.6em;height:2.6em;border-radius:50%;background:var(--gold);color:var(--navy);font-weight:800;display:grid;place-items:center;font-style:normal}
+.who{display:flex;gap:.65em;align-items:center;margin-top:.8em;position:relative;z-index:1}
+.who .av{width:2.8em;height:2.8em;border-radius:50%;overflow:hidden;flex:none;border:2px solid var(--gold)}
+.who .av svg{width:100%;height:100%;display:block}
+.who b{display:block;font-size:1.4em;font-weight:800;letter-spacing:-.01em;color:var(--gold);line-height:1.1}
+.who small{display:block;font-size:.88em;font-weight:700;opacity:.9;margin-top:.2em}
+.bstars{color:var(--gold);letter-spacing:.1em;font-size:1.3em;margin:.8em 0 .45em;position:relative;z-index:1}
+.quote{font-size:1.28em;font-weight:800;line-height:1.3;position:relative;z-index:1}
+.bottom{margin-top:auto;padding-top:.7em;border-top:1px solid rgba(251,212,4,.4);color:var(--gold);font-size:.66em;letter-spacing:.1em;text-transform:uppercase;font-weight:800;display:flex;justify-content:space-between;position:relative;z-index:1}
+.nav{display:none;position:absolute;top:calc(50% - 22px);width:44px;height:44px;border-radius:50%;border:2px solid var(--navy);background:var(--gold);color:var(--navy);cursor:pointer;z-index:5;place-items:center;box-shadow:0 4px 14px rgba(20,20,40,.12)}
+.nav:active{transform:scale(.94)}
+.nav svg{width:18px;height:18px}
+.prev{left:0}.next{right:0}
+.foot{justify-content:space-between}
+.foot .m{display:none}
+@media (max-width:699px){
+  .side{display:none}.foot .d{display:none}.foot .m{display:inline}
+  body{overflow-x:hidden}.section{overflow-x:clip}
+  .nav{display:grid}
+}
+@media (prefers-reduced-motion:reduce){.hang{animation:none;transform:rotate(var(--r0))}}
+.stage{min-height:420px;touch-action:auto}
+.vp{position:absolute;top:0;bottom:0;left:56px;right:56px;overflow:hidden}
+.vp svg.wire{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.wire path{stroke-width:1.6}
+@media (min-width:700px){.nav{display:grid}}
+@media (max-width:699px){
+ .nav{display:none}
+ .vp{left:0;right:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+ .vp::-webkit-scrollbar{display:none}
+ .slot{position:relative;flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always}
+ .slotwire{position:absolute;left:0;right:0;top:30px;height:1.6px;background:var(--wire)}
+}
+</style>
+</head>
+<body>
+<section class="section">
+<div class="head">
+    <h1>Testimonials<span>from across Tamil Nadu.</span></h1>
+    <div class="side">Real words from our customers in Karur, Coimbatore, Madurai and Trichy. Trust, built one journey at a time.</div>
+  </div>
+  <div class="stage" id="stage">
+    <div class="vp" id="vp"></div>
+    <button class="nav prev" id="prev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="nav next" id="next" aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+</section>
+
+<script>
+const PEOPLE=[
+ {k:"priya",n:"Priya Raman",loc:"Karur, Tamil Nadu",q:"Friendly team and honest service. They always pick up the call and deliver exactly what they promise.",bg:["#fde66b","#FBD404"],S:"#b87649",L:"#d18f62",D:"#98603a",lip:"#9c3b3b",shirt:"#01338D"},
+ {k:"arjun",n:"Arjun Krishnan",loc:"Coimbatore, Tamil Nadu",q:"Quick, reliable and very professional. Our work finished before the deadline, and the quality was top class.",bg:["#4a7bd6","#01338D"],S:"#a5683f",L:"#bd8054",D:"#86522f",lip:"#7d3a32",shirt:"#f3ecdd"},
+ {k:"meera",n:"Meenakshi Sundaram",loc:"Madurai, Tamil Nadu",q:"Truly dependable people. Fair price, clear communication and great follow-up. I recommend Friends Track to everyone.",bg:["#ffec8a","#FBD404"],S:"#c68b5f",L:"#dda379",D:"#a8724b",lip:"#a8434a",shirt:"#020F41"},
+ {k:"karthik",n:"Karthikeyan Murugan",loc:"Tiruchirappalli, Tamil Nadu",q:"From the first call to the final delivery, everything was smooth. A trusted name in Karur for a reason!",bg:["#4a7bd6","#01338D"],S:"#9c6038",L:"#b57a4e",D:"#7e4b2c",lip:"#70332c",shirt:"#f7e7a0"},
+ {k:"lakshmi",n:"Lakshmi Narayanan",loc:"Salem, Tamil Nadu",q:"Very smooth experience. Every detail was explained clearly and politely. I am happy to refer my family.",bg:["#4a7bd6","#01338D"],S:"#b27043",L:"#c98859",D:"#925c36",lip:"#9a3a45",shirt:"#f4f1e8"},
+ {k:"senthil",n:"Senthil Kumar",loc:"Erode, Tamil Nadu",q:"Honest people with real commitment. They kept their word on price and time. Hats off to the whole team!",bg:["#2d5fbf","#020F41"],S:"#8f5733",L:"#a86b42",D:"#74431f",lip:"#6a2f28",shirt:"#FBD404"},
+ {k:"meera",g:1,n:"Kavitha Pandian",loc:"Thanjavur, Tamil Nadu",q:"Excellent support even after the work was done. You can truly trust Friends Track. Thank you so much!",bg:["#ffec8a","#FBD404"],S:"#d09a6c",L:"#e5b184",D:"#b0804f",lip:"#b04a52",shirt:"#01338D"},
+ {k:"arjun",g:1,n:"Vignesh Subramanian",loc:"Tiruppur, Tamil Nadu",q:"Best service in the region. Professional, punctual and always smiling. We will certainly come back again.",bg:["#fde66b","#FBD404"],S:"#b47a4c",L:"#cb9060",D:"#935f37",lip:"#7d3a32",shirt:"#d8e4ff"}
+];
+const HR="#15100e",GOLD="#e8b130";const TA_PEOPLE=[
+ {n:"பிரியா ராமன்",loc:"கரூர், தமிழ்நாடு",q:"அன்பான குழுவினர், நேர்மையான சேவை. எப்போதும் அழைப்பை ஏற்று, சொன்னபடி சேவையை வழங்குகிறார்கள்."},
+ {n:"அர்ஜுன் கிருஷ்ணன்",loc:"கோயம்புத்தூர், தமிழ்நாடு",q:"விரைவான, நம்பகமான, மிகத் தொழில்முறையான சேவை. எங்கள் பணி காலக்கெடுவுக்கு முன்பே முடிந்தது; தரமும் சிறப்பாக இருந்தது."},
+ {n:"மீனாட்சி சுந்தரம்",loc:"மதுரை, தமிழ்நாடு",q:"உண்மையிலேயே நம்பிக்கைக்குரியவர்கள். நியாயமான கட்டணம், தெளிவான தகவல், சிறந்த தொடர்சேவை. அனைவருக்கும் Friends Track-ஐ பரிந்துரைக்கிறேன்."},
+ {n:"கார்த்திகேயன் முருகன்",loc:"திருச்சிராப்பள்ளி, தமிழ்நாடு",q:"முதல் அழைப்பிலிருந்து பயணம் முடியும் வரை அனைத்தும் சீராக இருந்தது. கரூரில் நம்பிக்கைக்குரிய நிறுவனம் என்பதற்கு காரணம் உண்டு!"},
+ {n:"லட்சுமி நாராயணன்",loc:"சேலம், தமிழ்நாடு",q:"மிகச் சீரான அனுபவம். ஒவ்வொரு விவரமும் தெளிவாகவும் மரியாதையுடனும் விளக்கப்பட்டது. என் குடும்பத்தினருக்கும் பரிந்துரைப்பதில் மகிழ்ச்சி."},
+ {n:"செந்தில் குமார்",loc:"ஈரோடு, தமிழ்நாடு",q:"உண்மையான அர்ப்பணிப்புள்ளவர்கள். கட்டணம் மற்றும் நேரம் குறித்த வாக்குறுதியைக் காப்பாற்றினர். முழுக் குழுவினருக்கும் பாராட்டுகள்!"},
+ {n:"கவிதா பாண்டியன்",loc:"தஞ்சாவூர், தமிழ்நாடு",q:"பணி முடிந்த பிறகும் சிறந்த உதவி கிடைத்தது. Friends Track-ஐ உண்மையிலேயே நம்பலாம். மிக்க நன்றி!"},
+ {n:"விக்னேஷ் சுப்பிரமணியன்",loc:"திருப்பூர், தமிழ்நாடு",q:"இந்தப் பகுதியில் சிறந்த சேவை. தொழில்முறை, நேரம் தவறாமை, எப்போதும் புன்னகை. மீண்டும் நிச்சயம் வருவோம்."}
+];
+let language="ta";
+const UI={en:{heading:"Testimonials",sub:"from across Tamil Nadu.",side:"Real words from our customers in Karur, Coimbatore, Madurai and Trichy. Trust, built one journey at a time.",testimonial:"Testimonial",read:"Read their words",verified:"Verified client",previous:"Previous testimonial",next:"Next testimonial",swipe:"Swipe · Tap card to flip"},ta:{heading:"வாடிக்கையாளர் கருத்துகள்",sub:"தமிழகம் முழுவதிலிருந்தும்.",side:"கரூர், கோயம்புத்தூர், மதுரை மற்றும் திருச்சியிலுள்ள எங்கள் வாடிக்கையாளர்களின் உண்மையான கருத்துகள். ஒவ்வொரு பயணத்திலும் உருவான நம்பிக்கை.",testimonial:"வாடிக்கையாளர் கருத்து",read:"அவர்களின் கருத்தைப் படிக்க",verified:"சரிபார்க்கப்பட்ட வாடிக்கையாளர்",previous:"முந்தைய கருத்து",next:"அடுத்த கருத்து",swipe:"நகர்த்தவும் · அட்டையைத் தட்டினால் திரும்பும்"}};
+function eye(cx,dir,w){return `<path d="M${cx-11} 95Q${cx} 86 ${cx+11} 95Q${cx} 102 ${cx-11} 95Z" fill="#fbf7f1"/><circle cx="${cx}" cy="94.8" r="3.9" fill="#2a1810"/><circle cx="${cx}" cy="94.8" r="2" fill="#080403"/><circle cx="${cx+1.5}" cy="93.2" r="1.3" fill="#fff"/><path d="M${cx-11.5} 95Q${cx} 85.5 ${cx+11.5} 95" stroke="#150d0a" stroke-width="2.2" fill="none" stroke-linecap="round"/>${w?`<path d="M${cx+dir*11.5} 95l${dir*3.2} -2.4" stroke="#150d0a" stroke-width="1.6" stroke-linecap="round"/>`:""}<path d="M${cx-8} 98.5Q${cx} 102 ${cx+8} 98.5" stroke="${"rgba(0,0,0,.14)"}" stroke-width="1" fill="none"/>`}
+function avatar(p,id){
+ const k=p.k,f=k==="priya"||k==="meera"||k==="lakshmi",bw=f?2.8:4.2;
+ const back=k==="priya"?`<path d="M50 104C40 52 68 26 100 26s60 26 50 78c2 36-2 62-10 84H60c-8-22-12-48-10-84z" fill="${HR}"/>`:k==="meera"?`<circle cx="100" cy="33" r="17" fill="${HR}"/>`:"";
+ const cap=`M57 96C54 56 74 36 100 36S146 56 143 96C140 74 128 62 106 58L100 56 94 58C72 62 60 74 57 96Z`;
+ let hair="";
+ if(f)hair=`<path d="${cap}" fill="${HR}"/>`;
+ if(k==="arjun")hair=`<path d="M57 90C52 52 76 34 102 34S148 50 143 90C141 72 134 58 116 54 100 60 76 56 64 72 60 78 58 84 57 90Z" fill="${HR}"/>`;
+ if(k==="karthik")hair=`<g fill="${HR}"><path d="M55 92C48 50 74 28 102 30S152 50 145 92C142 70 132 56 116 52 104 62 84 54 70 64 62 72 58 80 55 92Z"/><circle cx="78" cy="38" r="10"/><circle cx="100" cy="32" r="11"/><circle cx="122" cy="38" r="10"/></g>`;
+ if(k==="senthil")hair=`<path d="M58 86C56 54 80 40 100 40S144 54 142 86C138 70 126 62 100 60C74 62 62 70 58 86Z" fill="${HR}"/>`;
+ const beard=`M60 98C58 134 76 156 100 156s42-22 40-58c-4 18-12 30-22 34Q100 142 82 132C72 128 64 116 60 98Z`;
+ const ear=f?[58,142].map(x=>`<circle cx="${x}" cy="113" r="2.6" fill="${GOLD}"/><path d="M${x-3.4} 115.5h6.8l-3.4 8z" fill="${GOLD}"/>`).join(""):"";
+ const extra=
+  (f?`<circle cx="100" cy="68" r="3.2" fill="#c4161c"/>`:"")+
+  (k==="meera"?`<circle cx="94" cy="113.5" r="1.6" fill="${GOLD}"/><g fill="#fffdf5" stroke="#e3dcc4" stroke-width=".8"><circle cx="84" cy="36" r="3.4"/><circle cx="89" cy="25" r="3.4"/><circle cx="101" cy="18" r="3.4"/><circle cx="113" cy="24" r="3.4"/><circle cx="118" cy="35" r="3.4"/><circle cx="100" cy="46" r="3.4"/></g>`:"")+
+  (k==="arjun"?`<g stroke="#f5efe4" stroke-width="2" stroke-linecap="round" opacity=".92"><path d="M89 62h22M88 66.5h24M89 71h22"/></g><circle cx="100" cy="66.5" r="2.3" fill="#c4161c"/>`:"");
+ const braid=`<path d="M128 120C152 140 154 176 138 200" stroke="${HR}" stroke-width="13" fill="none" stroke-linecap="round"/><g fill="#fffdf5" stroke="#e3dcc4" stroke-width=".8"><circle cx="144" cy="146" r="3.2"/><circle cx="148" cy="162" r="3.2"/><circle cx="143" cy="180" r="3.2"/></g>`;
+ const garm=f?`<path d="M14 200C16 158 52 146 82 146Q100 166 118 146C148 146 184 158 186 200Z" fill="${p.shirt}"/><path d="M82 146Q100 166 118 146" stroke="${GOLD}" stroke-width="3.2" fill="none"/><path d="M18 184C60 170 140 170 182 184" stroke="${GOLD}" stroke-width="2.4" fill="none" opacity=".8"/>`
+  :`<path d="M14 200C16 158 52 146 82 146Q100 168 118 146C148 146 184 158 186 200Z" fill="${p.shirt}"/><path d="M82 146L100 172 118 146" stroke="rgba(0,0,0,.18)" stroke-width="2" fill="none"/><path d="M82 146Q100 168 118 146" stroke="rgba(255,255,255,.35)" stroke-width="1.6" fill="none"/>`;
+ return `<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="b${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p.bg[0]}"/><stop offset="1" stop-color="${p.bg[1]}"/></linearGradient><radialGradient id="h${id}" cx=".4" cy=".32" r=".85"><stop offset="0" stop-color="${p.L}"/><stop offset=".6" stop-color="${p.S}"/><stop offset="1" stop-color="${p.D}"/></radialGradient></defs>
+ <rect width="200" height="200" fill="url(#b${id})"/>${back}
+ <path d="M84 120h32l4 30q0 22-20 24-20-2-20-24z" fill="${p.D}"/>${garm}${k==="lakshmi"?braid:""}
+ <ellipse cx="100" cy="150" rx="26" ry="7" fill="rgba(0,0,0,.14)"/>
+ <ellipse cx="58.5" cy="98" rx="7" ry="11" fill="${p.S}"/><ellipse cx="141.5" cy="98" rx="7" ry="11" fill="${p.S}"/>${ear}
+ <path d="M100 38C128 38 144 62 144 92 144 124 126 148 100 148S56 124 56 92C56 62 72 38 100 38Z" fill="url(#h${id})"/>
+ <ellipse cx="73" cy="113" rx="9" ry="6" fill="#e0705e" opacity=".2"/><ellipse cx="127" cy="113" rx="9" ry="6" fill="#e0705e" opacity=".2"/>
+ ${hair}${extra}
+ ${eye(80,-1,f)}${eye(120,1,f)}
+ <path d="M67 82Q78 73.5 93 79M107 79Q122 73.5 133 82" stroke="${HR}" stroke-width="${bw}" fill="none" stroke-linecap="round"/>
+ <path d="M100 98C98 106 96 112 94 115 97 119 103 119 106 115" stroke="${p.D}" stroke-width="2" fill="none" stroke-linecap="round" opacity=".6"/>
+ ${k==="karthik"?`<path d="${beard}" fill="${HR}"/>`:k==="arjun"?`<path d="${beard}" fill="${HR}" opacity=".15"/>`:""}
+ <path d="M88 127Q94 122.5 100 125 106 122.5 112 127Q100 137 88 127Z" fill="${p.lip}"/><path d="M88 127Q100 130.5 112 127" stroke="rgba(0,0,0,.28)" stroke-width="1" fill="none"/><ellipse cx="100" cy="131.5" rx="5" ry="1.5" fill="#fff" opacity=".22"/>
+ ${k==="arjun"||k==="karthik"||k==="senthil"?`<path d="M83 125Q92 115 100 120Q108 115 117 125Q108 121.5 100 124.5Q92 121.5 83 125Z" fill="${HR}"/>`:""}
+ ${k==="karthik"||p.g?`<g stroke="#26262c" stroke-width="2.4" fill="rgba(255,255,255,.1)"><circle cx="80" cy="95" r="14"/><circle cx="120" cy="95" r="14"/></g><path d="M94 93Q100 90 106 93M66 93L56 90M134 93L144 90" stroke="#26262c" stroke-width="2.2" fill="none" stroke-linecap="round"/>`:""}
+ </svg>`;
+}
+const stage=document.getElementById("stage"),vp=document.getElementById("vp"),count=document.getElementById("count");
+const mq=matchMedia("(max-width:699px)"),N=PEOPLE.length;
+const rots=[[-2.2,-.8],[1.2,2.4],[-1.2,.4],[.6,2]],yOff=[18,52,34,70],STAR="★★★★★";
+let idx=0,mode=null,hangs=[],pathEl=null,geo={pitch:0},uid=0;
+function makeCard(p,i){
+ if(language==="ta"){p={...p,...TA_PEOPLE[i]};}
+ const h=document.createElement("div");h.className="hang";
+ const r=rots[i%4];
+ h.style.setProperty("--r0",r[0]+"deg");h.style.setProperty("--r1",r[1]+"deg");
+ h.style.animationDelay=(-i*1.3)+"s";
+ const num=String(i+1).padStart(2,"0");
+ h.innerHTML=`<div class="string"></div><div class="clip"></div>
+ <div class="tilt"><div class="card"><div class="flip">
+  <div class="face front"><div class="meta"><span>${UI[language].testimonial}</span><span>#${num}</span></div>
+   <div class="photo">${avatar(p,"a"+uid++)}</div>
+   <div class="name">${p.n}</div><div class="stars" aria-label="5 out of 5 stars">${STAR}<em>5.0</em></div>
+   <div class="cta"><span>${UI[language].read}</span><i>↻</i></div></div>
+  <div class="face back"><div class="meta"><span>${UI[language].testimonial} / ${num}</span><span>❝</span></div>
+   <div class="who"><div class="av">${avatar(p,"a"+uid++)}</div><div><b>${p.n}</b><small>${p.loc}</small></div></div>
+   <div class="bstars">${STAR}</div>
+   <div class="quote">“${p.q}”</div>
+   <div class="bottom"><span>${UI[language].verified}</span><span>${p.loc.split(",")[0]}</span></div></div>
+ </div></div></div>`;
+ const card=h.querySelector(".card"),tilt=h.querySelector(".tilt"),back=h.querySelector(".back");
+ card.addEventListener("click",()=>card.classList.toggle("flipped"));
+ card.addEventListener("pointermove",e=>{
+  const rc=card.getBoundingClientRect(),x=(e.clientX-rc.left)/rc.width,y=(e.clientY-rc.top)/rc.height;
+  back.style.setProperty("--mx",(x*100)+"%");back.style.setProperty("--my",(y*100)+"%");
+  if(e.pointerType==="mouse")tilt.style.transform=`rotateY(${(x-.5)*10}deg) rotateX(${(.5-y)*8}deg)`;
+ });
+ card.addEventListener("pointerleave",()=>{tilt.style.transform=""});
+ return h;
+}
+function updateCount(){if(count)count.textContent=String(idx+1).padStart(2,"0")+" / "+String(N).padStart(2,"0")+" · "+UI[language].swipe}
+function build(){
+ const mob=mq.matches;mode=mob;vp.innerHTML="";hangs=[];
+ if(mob){
+  [N-1,...PEOPLE.keys(),0].forEach(i=>{
+   const s=document.createElement("div");s.className="slot";s.innerHTML='<div class="slotwire"></div>';
+   const h=makeCard(PEOPLE[i],i);s.appendChild(h);hangs.push(h);vp.appendChild(s);
+  });
+ }else{
+  vp.innerHTML='<svg class="wire"><path id="wirePath"/></svg>';pathEl=vp.querySelector("#wirePath");
+  PEOPLE.forEach((p,i)=>{const h=makeCard(p,i);vp.appendChild(h);hangs.push(h)});
+ }
+ layout();
+}
+function show(instant){
+ hangs.forEach((h,i)=>{
+  let rel=((i-idx)%N+N)%N;if(rel===N-1)rel=-1;
+  const jump=instant||h._rel===undefined||Math.abs(rel-h._rel)>1;
+  if(jump)h.style.transition="none";
+  h.style.translate=(rel*geo.pitch)+"px 0";
+  if(jump){void h.offsetWidth;h.style.transition=""}
+  h._rel=rel;
+  if(rel<0||rel>3)h.querySelector(".card").classList.remove("flipped");
+ });
+ updateCount();
+}
+function layout(){
+ if(mq.matches!==mode){build();return}
+ const mob=mode,W=vp.clientWidth,wy=30;
+ const cw=mob?Math.min(260,W-56):Math.min(210,(W-24)/4.25),u=cw/20,gap=mob?(W-cw)/2:(W-4*cw)/5;
+ geo.pitch=cw+gap;
+ hangs.forEach((h,i)=>{
+  const li=mob?(i===0?N-1:i===N+1?0:i-1):i,off=mob?30:yOff[li%4];
+  h.style.left=gap+"px";h.style.top=wy+"px";h.style.width=cw+"px";
+  h.querySelector(".card").style.setProperty("--u",u);
+  h.querySelector(".string").style.height=(off+10)+"px";
+  h.querySelector(".clip").style.top=(off-2)+"px";
+  h.querySelector(".tilt").style.top=(off+10)+"px";
+ });
+ stage.style.minHeight=(cw*1.3+(mob?30:70)+80)+"px";
+ if(mob){vp.style.scrollSnapType="none";vp.scrollLeft=(idx+1)*W;requestAnimationFrame(()=>vp.style.scrollSnapType="");updateCount()}
+ else{pathEl.setAttribute("d",`M0 ${wy} L${W} ${wy}`);show(true)}
+}
+function go(d){if(mq.matches)return;idx=((idx+d)%N+N)%N;show()}
+document.getElementById("prev").onclick=()=>go(-1);
+document.getElementById("next").onclick=()=>go(1);
+addEventListener("keydown",e=>{if(e.key==="ArrowLeft")go(-1);if(e.key==="ArrowRight")go(1)});
+let st;
+vp.addEventListener("scroll",()=>{
+ if(!mq.matches)return;
+ const W=vp.clientWidth,cur=Math.round(vp.scrollLeft/W);
+ idx=((cur-1)%N+N)%N;updateCount();
+ clearTimeout(st);
+ st=setTimeout(()=>{
+  let c=Math.round(vp.scrollLeft/W);
+  if(c===0||c===N+1){c=c===0?N:1;vp.style.scrollSnapType="none";vp.scrollLeft=c*W;requestAnimationFrame(()=>vp.style.scrollSnapType="")}
+  idx=((c-1)%N+N)%N;updateCount();
+  hangs.forEach((h,k)=>{if(k!==c)h.querySelector(".card").classList.remove("flipped")});
+ },90);
+},{passive:true});
+function setLanguage(next){
+ if(next!=="ta"&&next!=="en")return;
+ if(language===next&&document.documentElement.lang===next)return;
+ language=next;document.documentElement.lang=next;
+ const labels=UI[next],heading=document.querySelector("h1"),side=document.querySelector(".head .side");
+ heading.childNodes[0].textContent=labels.heading;heading.querySelector("span").textContent=labels.sub;side.textContent=labels.side;
+ document.getElementById("prev").setAttribute("aria-label",labels.previous);document.getElementById("next").setAttribute("aria-label",labels.next);
+ build();
+}
+window.addEventListener("message",e=>{if(e.data?.type==="friends-taxi-language")setLanguage(e.data.lang)});
+build();addEventListener("resize",layout);
+let autoFlipTimer=null,autoFlipStep=0;
+addEventListener("message",e=>{
+ if(e.data?.type!=="testimonial-visibility")return;
+ if(!e.data.visible){clearInterval(autoFlipTimer);autoFlipTimer=null;autoFlipStep=0;hangs.forEach(h=>h.querySelector(".card").classList.remove("flipped"));return}
+ if(autoFlipTimer)return;
+ autoFlipTimer=setInterval(()=>{
+  const visible=mode
+   ? [hangs[Math.round(vp.scrollLeft/Math.max(vp.clientWidth,1))]].filter(Boolean)
+   : hangs.filter(h=>h._rel>=0&&h._rel<=3).sort((a,b)=>a._rel-b._rel);
+  if(!visible.length)return;
+  hangs.forEach(h=>h.querySelector(".card").classList.remove("flipped"));
+  visible[autoFlipStep%visible.length].querySelector(".card").classList.add("flipped");
+  autoFlipStep++;
+ },3000);
+});
+</script>
+</body>
+</html>
+
+
+
