@@ -132,5 +132,17 @@ const bk=document.getElementById('bk');
 function pos(){const f=document.querySelector('.fcs').getBoundingClientRect();const mob=matchMedia('(max-width:760px),(max-aspect-ratio:9/10)').matches;if(mob){bk.style.left=(f.left+f.width/2)+'px';bk.style.top=(f.bottom+16+bk.offsetHeight/2)+'px';return}bk.style.left=(f.right-bk.offsetWidth/2)+'px';bk.style.top=(f.bottom+30+bk.offsetHeight/2)+'px'}
 pos();addEventListener('resize',pos);addEventListener('load',pos);document.fonts&&document.fonts.ready.then(pos);
 addEventListener('pointermove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;gs.forEach(g=>{const d=+g.dataset.d;g.style.transform=`translate(${-x*d*2}px,${-y*d}px)`})});
+let parentRequestedReady=false;
+function reportReady(){if(parentRequestedReady)parent.postMessage({type:'friends-track-hero-ready'},location.origin)}
+addEventListener('message',e=>{if(e.origin===location.origin&&e.data?.type==='friends-track-request-ready'){parentRequestedReady=true;if(window.heroAssetsReady)reportReady()}});
+Promise.all([
+  document.fonts?document.fonts.ready:Promise.resolve(),
+  ...[...document.querySelectorAll('svg image')].map(el=>{
+    const src=el.href?.baseVal||el.getAttribute('href');
+    if(!src)return Promise.resolve();
+    const image=new Image();image.src=src;
+    return image.decode().catch(()=>{});
+  })
+]).then(()=>{window.heroAssetsReady=true;reportReady()});
 </script>
 </body></html>

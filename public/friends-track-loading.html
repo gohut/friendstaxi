@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Friends Track – Loading</title>
+<style>
+:root{--bg:#f4f6fb;--fg:#1a2a5a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1220;--fg:#e8ecf8}}
+:root[data-theme="dark"]{--bg:#0e1220;--fg:#e8ecf8}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;align-items:center;justify-content:center}
+.wrap{text-align:center;padding:16px}
+svg{width:min(56vw,38vh,440px);height:auto;filter:drop-shadow(0 12px 18px rgba(0,0,40,.35));animation:pop .9s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+.fb{transform-box:fill-box;transform-origin:center}
+.orbit{animation:spin 1.6s linear infinite}
+.orbit2{animation:spin 2.6s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ripple{animation:ripple 2s ease-out infinite}
+.ripple.r2{animation-delay:1s}
+@keyframes ripple{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.07);opacity:0}}
+.st{animation:slideR 1.4s linear infinite}
+.sb{animation:slideL 1.45s linear infinite}
+@keyframes slideR{to{transform:translateX(28px)}}
+@keyframes slideL{to{transform:translateX(-29px)}}
+.sweep{animation:sweep 2.4s ease-in-out infinite}
+@keyframes sweep{0%{transform:translateX(-260px)}60%,100%{transform:translateX(760px)}}
+.txt{margin:6px 0 0;font-weight:700;letter-spacing:.18em;font-size:15px;text-transform:uppercase;opacity:.85}
+.txt i{font-style:normal;animation:dot 1.2s infinite both}
+.txt i:nth-child(2){animation-delay:.2s}.txt i:nth-child(3){animation-delay:.4s}
+@keyframes dot{0%,80%,100%{opacity:.15}40%{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+p{margin:12px 0 0;opacity:.7;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<svg viewBox="10 10 850 850" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Friends Track round emblem">
+<defs>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff27a"/><stop offset=".45" stop-color="#ffc400"/><stop offset="1" stop-color="#d98a00"/></linearGradient>
+<radialGradient id="blue" cx=".4" cy=".25" r=".9"><stop offset="0" stop-color="#2f7be0"/><stop offset=".5" stop-color="#0f4bb5"/><stop offset="1" stop-color="#06246e"/></radialGradient>
+<linearGradient id="yel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff35a"/><stop offset="1" stop-color="#ffc800"/></linearGradient>
+<linearGradient id="orange" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e08a00" stop-opacity=".95"/><stop offset=".35" stop-color="#ffb800" stop-opacity=".4"/><stop offset=".6" stop-color="#ffc800" stop-opacity="0"/></linearGradient>
+<linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<clipPath id="band"><polygon points="236,355 652,355 574,486 156,486"/></clipPath>
+<clipPath id="fshape"><path d="M352,332 Q380,322 410,318 L561,318 Q592,316 613,288 L661,208 L467,201 Q430,206 413,232 Z"/><polygon points="236,355 652,355 574,486 156,486"/><path d="M265,485 L452,485 L376,602 C360,626 340,640 299,643 L191,643 Q177,634 180,622 Z"/></clipPath>
+<linearGradient id="sw" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<clipPath id="face"><circle cx="435" cy="435" r="347"/></clipPath>
+</defs>
+<circle cx="435" cy="435" r="402" fill="none" stroke="#ffc400" stroke-opacity=".18" stroke-width="8"/>
+<circle class="fb orbit" cx="435" cy="435" r="402" fill="none" stroke="#ffc400" stroke-width="10" stroke-linecap="round" stroke-dasharray="620 1910"/>
+<circle class="fb orbit2" cx="435" cy="435" r="402" fill="none" stroke="#2f7be0" stroke-width="10" stroke-linecap="round" stroke-dasharray="260 2270"/>
+<circle class="fb ripple" cx="435" cy="435" r="384" fill="none" stroke="#ffc400" stroke-width="6"/>
+<circle class="fb ripple r2" cx="435" cy="435" r="384" fill="none" stroke="#ffc400" stroke-width="6"/>
+<circle cx="435" cy="435" r="384" fill="url(#gold)"/>
+<circle cx="435" cy="435" r="362" fill="none" stroke="#b87400" stroke-opacity=".35" stroke-width="3"/>
+<circle cx="435" cy="435" r="347" fill="url(#blue)"/>
+<g clip-path="url(#face)">
+<ellipse cx="435" cy="700" rx="470" ry="250" fill="#031a5a" opacity=".45"/>
+<ellipse cx="435" cy="150" rx="310" ry="105" fill="url(#shine)"/>
+</g>
+<!-- shadow -->
+<g fill="#000" opacity=".3" transform="translate(10,14)">
+<path d="M352,332 Q380,322 410,318 L561,318 Q592,316 613,288 L661,208 L467,201 Q430,206 413,232 Z"/>
+<polygon points="236,355 652,355 574,486 156,486"/>
+<path d="M265,485 L452,485 L376,602 C360,626 340,640 299,643 L191,643 Q177,634 180,622 Z"/>
+</g>
+<!-- top block -->
+<path d="M352,332 Q380,322 410,318 L561,318 Q592,316 613,288 L661,208 L467,201 Q430,206 413,232 Z" fill="url(#yel)"/>
+<!-- band -->
+<polygon points="236,355 652,355 574,486 156,486" fill="url(#yel)"/>
+<g clip-path="url(#band)">
+<rect x="150" y="353" width="520" height="28" fill="#fbea6e"/>
+<rect x="150" y="456" width="520" height="30" fill="#fbea6e"/>
+<g fill="#0b0b0b"><g class="st"><rect x="121.0" y="353" width="14" height="14"/><rect x="149.0" y="353" width="14" height="14"/><rect x="177.0" y="353" width="14" height="14"/><rect x="205.0" y="353" width="14" height="14"/><rect x="233.0" y="353" width="14" height="14"/><rect x="261.0" y="353" width="14" height="14"/><rect x="289.0" y="353" width="14" height="14"/><rect x="317.0" y="353" width="14" height="14"/><rect x="345.0" y="353" width="14" height="14"/><rect x="373.0" y="353" width="14" height="14"/><rect x="401.0" y="353" width="14" height="14"/><rect x="429.0" y="353" width="14" height="14"/><rect x="457.0" y="353" width="14" height="14"/><rect x="485.0" y="353" width="14" height="14"/><rect x="513.0" y="353" width="14" height="14"/><rect x="541.0" y="353" width="14" height="14"/><rect x="569.0" y="353" width="14" height="14"/><rect x="597.0" y="353" width="14" height="14"/><rect x="625.0" y="353" width="14" height="14"/><rect x="653.0" y="353" width="14" height="14"/><rect x="681.0" y="353" width="14" height="14"/><rect x="709.0" y="353" width="14" height="14"/><rect x="737.0" y="353" width="14" height="14"/><rect x="107.0" y="367" width="14" height="14"/><rect x="135.0" y="367" width="14" height="14"/><rect x="163.0" y="367" width="14" height="14"/><rect x="191.0" y="367" width="14" height="14"/><rect x="219.0" y="367" width="14" height="14"/><rect x="247.0" y="367" width="14" height="14"/><rect x="275.0" y="367" width="14" height="14"/><rect x="303.0" y="367" width="14" height="14"/><rect x="331.0" y="367" width="14" height="14"/><rect x="359.0" y="367" width="14" height="14"/><rect x="387.0" y="367" width="14" height="14"/><rect x="415.0" y="367" width="14" height="14"/><rect x="443.0" y="367" width="14" height="14"/><rect x="471.0" y="367" width="14" height="14"/><rect x="499.0" y="367" width="14" height="14"/><rect x="527.0" y="367" width="14" height="14"/><rect x="555.0" y="367" width="14" height="14"/><rect x="583.0" y="367" width="14" height="14"/><rect x="611.0" y="367" width="14" height="14"/><rect x="639.0" y="367" width="14" height="14"/><rect x="667.0" y="367" width="14" height="14"/><rect x="695.0" y="367" width="14" height="14"/><rect x="723.0" y="367" width="14" height="14"/><rect x="751.0" y="367" width="14" height="14"/></g><g class="sb"><rect x="50.0" y="456" width="14.5" height="14.5"/><rect x="79.0" y="456" width="14.5" height="14.5"/><rect x="108.0" y="456" width="14.5" height="14.5"/><rect x="137.0" y="456" width="14.5" height="14.5"/><rect x="166.0" y="456" width="14.5" height="14.5"/><rect x="195.0" y="456" width="14.5" height="14.5"/><rect x="224.0" y="456" width="14.5" height="14.5"/><rect x="253.0" y="456" width="14.5" height="14.5"/><rect x="282.0" y="456" width="14.5" height="14.5"/><rect x="311.0" y="456" width="14.5" height="14.5"/><rect x="340.0" y="456" width="14.5" height="14.5"/><rect x="369.0" y="456" width="14.5" height="14.5"/><rect x="398.0" y="456" width="14.5" height="14.5"/><rect x="427.0" y="456" width="14.5" height="14.5"/><rect x="456.0" y="456" width="14.5" height="14.5"/><rect x="485.0" y="456" width="14.5" height="14.5"/><rect x="514.0" y="456" width="14.5" height="14.5"/><rect x="543.0" y="456" width="14.5" height="14.5"/><rect x="572.0" y="456" width="14.5" height="14.5"/><rect x="601.0" y="456" width="14.5" height="14.5"/><rect x="630.0" y="456" width="14.5" height="14.5"/><rect x="659.0" y="456" width="14.5" height="14.5"/><rect x="688.0" y="456" width="14.5" height="14.5"/><rect x="717.0" y="456" width="14.5" height="14.5"/><rect x="746.0" y="456" width="14.5" height="14.5"/><rect x="35.5" y="470.5" width="14.5" height="14.5"/><rect x="64.5" y="470.5" width="14.5" height="14.5"/><rect x="93.5" y="470.5" width="14.5" height="14.5"/><rect x="122.5" y="470.5" width="14.5" height="14.5"/><rect x="151.5" y="470.5" width="14.5" height="14.5"/><rect x="180.5" y="470.5" width="14.5" height="14.5"/><rect x="209.5" y="470.5" width="14.5" height="14.5"/><rect x="238.5" y="470.5" width="14.5" height="14.5"/><rect x="267.5" y="470.5" width="14.5" height="14.5"/><rect x="296.5" y="470.5" width="14.5" height="14.5"/><rect x="325.5" y="470.5" width="14.5" height="14.5"/><rect x="354.5" y="470.5" width="14.5" height="14.5"/><rect x="383.5" y="470.5" width="14.5" height="14.5"/><rect x="412.5" y="470.5" width="14.5" height="14.5"/><rect x="441.5" y="470.5" width="14.5" height="14.5"/><rect x="470.5" y="470.5" width="14.5" height="14.5"/><rect x="499.5" y="470.5" width="14.5" height="14.5"/><rect x="528.5" y="470.5" width="14.5" height="14.5"/><rect x="557.5" y="470.5" width="14.5" height="14.5"/><rect x="586.5" y="470.5" width="14.5" height="14.5"/><rect x="615.5" y="470.5" width="14.5" height="14.5"/><rect x="644.5" y="470.5" width="14.5" height="14.5"/><rect x="673.5" y="470.5" width="14.5" height="14.5"/><rect x="702.5" y="470.5" width="14.5" height="14.5"/><rect x="731.5" y="470.5" width="14.5" height="14.5"/></g></g>
+</g>
+<!-- bottom block -->
+<path d="M265,485 L452,485 L376,602 C360,626 340,640 299,643 L191,643 Q177,634 180,622 Z" fill="url(#yel)"/>
+<path d="M265,485 L452,485 L376,602 C360,626 340,640 299,643 L191,643 Q177,634 180,622 Z" fill="url(#orange)"/>
+<g clip-path="url(#fshape)"><polygon class="sweep" points="40,180 110,180 -10,660 -80,660" fill="url(#sw)"/></g>
+</svg>
+</div>
+</body>
+</html>

@@ -567,7 +567,7 @@ Please confirm my ride booking. Thank you!`;
                     className="neo-btn bg-white hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed w-12 h-12 p-0 border-2 border-black"
                     aria-label="Decrease passenger count"
                   >
-                    <MinusIcon className="w-6 h-6 text-black" />
+                    <MinusIcon className="w-8 h-8 text-black" />
                   </button>
 
                   <div
@@ -585,7 +585,7 @@ Please confirm my ride booking. Thank you!`;
                     className="neo-btn bg-white hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed w-12 h-12 p-0 border-2 border-black"
                     aria-label="Increase passenger count"
                   >
-                    <PlusIcon className="w-6 h-6 text-black" />
+                    <PlusIcon className="w-8 h-8 text-black" />
                   </button>
 
                 </div>
